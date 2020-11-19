@@ -20,8 +20,10 @@ pip install pymongo
 ## Usage and API implemented
 ### General usage.
 ```
+from mongomodel.models import DocumentModel
 from mongomodel.datatypes import Email,StringField,EmbeddedDocumentList,NumberField,DateTime,Boolean
-class UserSchema(DocumentModel):
+
+class Ex_schema(DocumentModel):
     __database__ ="test_DB"
     __collection__="user_info_col"
     __schema__ ={
@@ -52,7 +54,7 @@ class UserSchema(DocumentModel):
            EX:
                 doc = schema(Documentmodel)
                 doc.findone({"email":"w@ww.com"})
-                doc.get("email") or doc["email"] = "new@mail.com"
+                doc.get("email") = "new@mail.com"
             and directly can be saved like
                 doc.insert() 
     ~params::  findall
@@ -62,3 +64,7 @@ class UserSchema(DocumentModel):
         :- usesage doc.updatedoc(filterkey={"email":"example@eg.com"})
     ~params::  deletedoc
         :- usesage doc.deletedoc(filterkey={"email":"example@eg.com"})
+#### Note:-  "__database__" , "__collection__" ,"__schema__" are mandatory variables
+
+
+    
